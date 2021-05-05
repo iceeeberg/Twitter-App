@@ -6,24 +6,22 @@ const port = 3000;
 
 app.use(express.static(path.join(__dirname, 'client', 'build', 'index.html')));
 
-// app.get("/", (req, res) => {
-//   console.log("Responding to root route");
-//   res.send("Hello from Root!");
-// });
-
 app.get('/api',(req, res) => {
 
   axios({
     method: 'get',
-    url: 'https://api.twitter.com/1.1/search/tweets.json?q',
-    data: 'json'
+    url: `https://api.twitter.com/1.1/search/tweets.json?q=nasa${token}`,
+    data: 'json',
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
   })
     .then((response) => {
-      res.send(response.data);
-      console.log(response.data);
+      res.send(response.data)
+      console.log(response.data)
     })
     .catch((err) => {
-      console.log(err);
+      console.log(err)
       res.sendStatus(500);
   })
 });
