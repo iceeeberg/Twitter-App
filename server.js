@@ -19,11 +19,11 @@ app.get('/api',(req, res) => {
     data: 'json'
   })
     .then((response) => {
-      res.send(response.data)
-      console.log(response.data)
+      res.send(response.data);
+      console.log(response.data);
     })
     .catch((err) => {
-      console.log(err)
+      console.log(err);
       res.sendStatus(500);
   })
 });
