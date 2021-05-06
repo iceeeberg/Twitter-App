@@ -3,7 +3,9 @@ const app = express();
 const path = require('path');
 const axios = require('axios');
 const port = 3000;
+require('dotenv').config()
 const token = process.env.BEARER_TOKEN;
+
 
 app.use(express.static(path.join(__dirname, 'client', 'build', 'index.html')));
 
@@ -11,7 +13,7 @@ app.get('/api',(req, res) => {
 
   axios({
     method: 'get',
-    url: `https://api.twitter.com/1.1/search/tweets.json?q`,
+    url: `https://api.twitter.com/1.1/search/tweets.json?q=NBA`,
     headers: {
       Authorization: `Bearer ${token}`
     }
