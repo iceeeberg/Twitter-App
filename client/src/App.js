@@ -7,7 +7,7 @@ import Search from './Components/Search';
 import RandomTweet from './Components/RandomTweet';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
