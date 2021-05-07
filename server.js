@@ -12,7 +12,7 @@ app.get('/api/tweets/random',(req, res) => {
 
   axios({
     method: 'get',
-    url: `https://api.twitter.com/1.1/search/tweets.json?q=NBA`,
+    url: `https://api.twitter.com/1.1/search/tweets.json?q=lebronjames&lang=en`,
     headers: {
       Authorization: `Bearer ${token}`
     }
