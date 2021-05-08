@@ -33,7 +33,7 @@ const Search = ({ user }) => {
       <button 
         className="btn btn-primary mb-2"
         onSubmit={handleSubmit}
-      >Search Tweet
+      >Search User
       </button>
     </div>
   )
