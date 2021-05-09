@@ -31,7 +31,7 @@ app.get('/api/tweets/users', (req, res) => {
 
   axios ({
     method: 'get',
-    url: `https://api.twitter.com/2/users/by?usernames=KingJames`,
+    url: `https://api.twitter.com/1.1/users/show.json?screen_name=kingjames`,
     headers: {
       Authorization: `Bearer ${token}`
     }
