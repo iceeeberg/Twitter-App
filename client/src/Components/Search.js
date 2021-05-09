@@ -1,8 +1,10 @@
 import React, {useState} from "react";
+import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios';
 
-const Search = ({ user }) => {
+const Search = () => {
   const [search, setSearch] = useState("");
+  const [tweet, setTweet] = useState([])
  
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -10,9 +12,9 @@ const Search = ({ user }) => {
       alert("You must enter a Twitter user!")
     } else {
       axios
-        .get('/api/tweets/users')
+        .get(`/api/tweets/users`)
         .then((res) =>
-          console.log(res.data.data[0].username))
+          console.log(res.data.screen_name))
     }
   };
 

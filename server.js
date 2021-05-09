@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 require('dotenv').config()
 const token = process.env.BEARER_TOKEN;
 
-app.use(express.static(path.join(__dirname, 'client', 'build', 'index.html')));
+app.use("/", express.static(path.join(__dirname, 'client/build')));
 
 app.get('/api/tweets/random',(req, res) => {
 
@@ -31,7 +31,7 @@ app.get('/api/tweets/users', (req, res) => {
 
   axios ({
     method: 'get',
-    url: `https://api.twitter.com/2/users/by?usernames=KingJames`,
+    url: `https://api.twitter.com/1.1/users/show.json?screen_name=kingjames`,
     headers: {
       Authorization: `Bearer ${token}`
     }
