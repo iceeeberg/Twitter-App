@@ -11,17 +11,13 @@ const Search = ({ user }) => {
     } else {
       axios
         .get('/api/tweets/users')
-        .then(res => {
-          setSearch(user = () => {
-            return res.data.username
-          });
-          console.log(res.data.username)
-        });
-    };
+        .then((res) =>
+          console.log(res.data.data[0].username))
+    }
   };
 
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
       <input 
         placeholder="Search Username..."
         type="text"
@@ -29,13 +25,12 @@ const Search = ({ user }) => {
         onChange={(e) => setSearch(e.target.value)}
         >
       </input>
-        <br></br>
+      <br></br>
       <button 
         className="btn btn-primary mb-2"
-        onSubmit={handleSubmit}
       >Search User
       </button>
-    </div>
+    </form>
   )
 }
 
