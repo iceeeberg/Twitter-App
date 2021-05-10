@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const Search = () => {
   const [search, setSearch] = useState("");
-  const [tweets, setTweets] = useState([])
+  const [tweets, setTweets] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,12 +12,13 @@ const Search = () => {
       alert("You must enter a Twitter user!")
     } else {
       axios
-        .get(`/api/tweets/users?search_term=${search}`)
-        .then((res) =>
-          setTweets(res.data.status.text))
+        .get(`/api/tweets/users?screen_name=${search}`)
+        .then((res) => setTweets(res.data))
       // console.log(res.data.status.text)
     }
   };
+
+console.log('tweets', tweets)
 
   return (
     <div>
@@ -38,8 +39,8 @@ const Search = () => {
         </form>
       </div>
       <div>
-        {status.map((status, id) =>
-        <p key={id} status={status}></p>
+        {tweets.map((tweet) =>
+        <p key={tweet.id} >@{tweet.user.screen_name} {tweet.text} {tweet.favorite_count} {tweet.retweet_count}</p>
         )}
       </div>
     </div>
