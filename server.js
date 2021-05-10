@@ -29,9 +29,11 @@ app.get('/api/tweets/random',(req, res) => {
 
 app.get('/api/tweets/users', (req, res) => {
 
+  const userName = req.query.search_term;
+
   axios ({
     method: 'get',
-    url: `https://api.twitter.com/1.1/users/show.json?screen_name=kingjames`,
+    url: `https://api.twitter.com/1.1/users/show.json?screen_name=${userName}&count=5`,
     headers: {
       Authorization: `Bearer ${token}`
     }
