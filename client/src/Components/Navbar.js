@@ -13,7 +13,7 @@ const Navbar = () => {
     <ul className="navbar-nav mr-auto" id="navbarNavDropdown">
       <li className="nav-item active"><Link to="/" className="nav-link">Home</Link></li>
       <li className="nav-item active"><Link to="/search" className="nav-link">Search</Link></li>
-      <li className="nav-item active"><Link to="/random" className="nav-link">Random Tweet</Link></li>
+      <li className="nav-item active"><Link to="/randomtweet" className="nav-link">Random Tweet</Link></li>
     </ul>
     </nav>
   )
