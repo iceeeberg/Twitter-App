@@ -17,7 +17,7 @@ const RandomTweet = () => {
 
   const getRandomTweets = async (tweets) => {
     const tweetData = await axios.get(tweets);
-    const response = tweetData.data.status
+    const response = tweetData.data.statuses
     const random = response(Math.floor(Math.Random() * response.length))
     setTweets(random)
     console.log('setTweets', setTweets)
@@ -44,7 +44,7 @@ const RandomTweet = () => {
         </div>
         <div>
         {tweets.map((tweet) =>
-        <p key={tweet.id} >{tweet.user.text}</p>
+        <p key={tweet.id} >{tweet.status.text}</p>
         )}
       </div>
       </div>
