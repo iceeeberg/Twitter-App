@@ -18,7 +18,7 @@ const RandomTweet = () => {
   const getRandomTweets = async (tweets) => {
     const tweetData = await axios.get(tweets);
     const response = tweetData.data.statuses
-    const random = response(Math.floor(Math.Random() * response.length))
+    const random = response(Math.floor(Math.random() * response.length))
     setTweets(random)
     console.log('setTweets', setTweets)
   }
