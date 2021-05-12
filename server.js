@@ -10,9 +10,11 @@ app.use("/", express.static(path.join(__dirname, 'client/build')));
 
 app.get('/api/tweets/random',(req, res) => {
 
+  const screen_name = req.query.user_name
+
   axios({
     method: 'get',
-    url: `https://api.twitter.com/1.1/search/tweets.json?q=lebronjames&lang=en`,
+    url: `https://api.twitter.com/1.1/search/tweets.json?q=${screen_name}&result_type=popular&count=1`,
     headers: {
       Authorization: `Bearer ${token}`
     }
