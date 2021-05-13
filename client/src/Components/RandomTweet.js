@@ -9,7 +9,7 @@ import nintendoImage from '../images/nintendo.png';
 
 
 const RandomTweet = () => {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState(null);
 
   const handleClick = (screen_name) => {
     getRandomTweets(`/api/tweets/users?screen_name=${screen_name}`)
@@ -43,8 +43,8 @@ const RandomTweet = () => {
         <button className="btn btn-dark mb-2" onClick={() => handleClick(`nintendoamerica`)}>Nintendo of America</button>
       </div>
       <div>
-        <p key={users.id}>
-          {users.name} {users.text} {users.retweet_count} {users.favorite_count}
+        <p key={users?.id}>
+          @{users?.user?.screen_name} {users?.text} {users?.retweet_count} {users?.favorite_count}
         </p>
       </div>
     </div>
