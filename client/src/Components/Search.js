@@ -14,7 +14,6 @@ const Search = () => {
       axios
         .get(`/api/tweets/users?screen_name=${search}`)
         .then((res) => setTweets(res.data))
-      // console.log(res.data.status.text)
     }
   };
 
