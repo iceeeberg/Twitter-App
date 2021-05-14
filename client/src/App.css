@@ -3,11 +3,19 @@ html body {
 }
 
 #home-title{
-  margin-top: 4%;
-  margin-left: 10%;
+  margin-top: 3%;
+  margin-left: 8%;
 }
 
 img{
   margin-top: 4%;
+}
+
+.twitter-icon{
+  margin-left: 80%;
+}
+
+#search{
+  margin-top: 13%;
 }
 

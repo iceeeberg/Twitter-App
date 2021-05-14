@@ -44,7 +44,7 @@ const RandomTweet = () => {
       </div>
       <div>
         <p key={users?.id}>
-          @{users?.user?.screen_name} {users?.text} {users?.retweet_count} {users?.favorite_count}
+        <img src={users?.user?.profile_image_url}></img> @{users?.user?.screen_name} {users?.text} {users?.retweet_count} {users?.favorite_count}
         </p>
       </div>
     </div>

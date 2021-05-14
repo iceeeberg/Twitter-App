@@ -17,29 +17,36 @@ const Search = () => {
     }
   };
 
-console.log('tweets', tweets)
+  console.log('tweets', tweets)
 
   return (
     <div>
       <div>
-        <form onSubmit={handleSubmit}>
+        <br></br>
+        <h4 className="font-weight-bold">
+          <p className="text-center">
+            Search a Twitter user by username and begin the hunt for 7 popular tweets from the searched user.
+        </p>
+        </h4>
+        <br></br>
+      </div>
+      <form className="col-lg-6 offset-lg-3" onSubmit={handleSubmit}>
+        <div className="row justify-content-center">
           <input
+            className="form-control"
             placeholder="Search Username..."
             type="text"
             name="user"
-            onChange={(e) => setSearch(e.target.value)}
-          >
+            onChange={(e) => setSearch(e.target.value)}>
           </input>
-          <br></br>
-          <button
-            className="btn btn-primary mb-2"
-          >Search User
-      </button>
-        </form>
-      </div>
+          <div className="input-group-append">
+            <button className="btn btn-dark mb-2" id="search">Search User</button>
+          </div>
+        </div>
+      </form>
       <div>
         {tweets.map((tweet) =>
-        <p key={tweet.id} >@{tweet.user.screen_name} {tweet.text} {tweet.favorite_count} {tweet.retweet_count}</p>
+          <p key={tweet.id}> <img src={tweet.user.profile_image_url}></img> @{tweet.user.screen_name} {tweet.text} {tweet.favorite_count} {tweet.retweet_count}</p>
         )}
       </div>
     </div>
