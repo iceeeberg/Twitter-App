@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios';
+import TwitterCard from './twitterCard';
 
 const Search = () => {
   const [search, setSearch] = useState("");
@@ -46,7 +47,8 @@ const Search = () => {
       </form>
       <div>
         {tweets.map((tweet) =>
-          <p key={tweet.id}> <img src={tweet.user.profile_image_url}></img> @{tweet.user.screen_name} {tweet.text} {tweet.favorite_count} {tweet.retweet_count}</p>
+        <TwitterCard tweet={tweet} />
+          // <p key={tweet.id}> <img src={tweet.user.profile_image_url}></img> @{tweet.user.screen_name} {tweet.text} {tweet.favorite_count} {tweet.retweet_count}</p>
         )}
       </div>
     </div>
