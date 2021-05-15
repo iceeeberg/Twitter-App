@@ -19,3 +19,10 @@ img{
   margin-top: 13%;
 }
 
+#search-card {
+	justify-content: center;
+	margin: auto;
+	margin-bottom: 20px;
+	padding: 15px;
+	width: 50%;
+}
