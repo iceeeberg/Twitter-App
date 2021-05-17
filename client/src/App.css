@@ -19,10 +19,11 @@ img{
   margin-top: 13%;
 }
 
-#search-card {
-	justify-content: center;
-	margin: auto;
-	margin-bottom: 20px;
-	padding: 15px;
-	width: 50%;
+.vol-ctr {
+  display: flex;
+  justify-content: space-around;
+}
+
+#favorite-icon{
+  background-image: none;
 }

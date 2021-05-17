@@ -18,8 +18,6 @@ const Search = () => {
     }
   };
 
-  console.log('tweets', tweets)
-
   return (
     <div>
       <div>
@@ -46,9 +44,8 @@ const Search = () => {
         </div>
       </form>
       <div>
-        {tweets.map((tweet) =>
-        <TwitterCard tweet={tweet} />
-          // <p key={tweet.id}> <img src={tweet.user.profile_image_url}></img> @{tweet.user.screen_name} {tweet.text} {tweet.favorite_count} {tweet.retweet_count}</p>
+        {tweets.map((tweets) =>
+          <TwitterCard tweets={tweets} />
         )}
       </div>
     </div>

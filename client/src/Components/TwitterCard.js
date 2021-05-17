@@ -1,32 +1,31 @@
 import React from 'react';
-import { Card } from "react-bootstrap";
-import twitterHeart from '../images/twitter_heart.jpg'
+import { Card } from 'react-bootstrap';
+import twitterHeart from '../images/twitter_heart.jpg';
 import twitterRetweet from '../images/retweet.png';
 
-const TwitterCard = ({tweet}) => {
-
+const TwitterCard = ({ tweets }) => {
   return (
-    <Card id='tweet-card' key={tweet.id} className="bg-dark text-white">
+    <Card className="bg-dark text-white mb-2" style={{ width: '72rem' }}>
       <Card.Header>
-        <Card.Img className='rounded-circle' variant='top' src={tweet.user.profile_image_url}
-          style={{ height: 70, width: 70 }} />
+        <Card.Img
+          className="rounded-circle"
+          variant="top"
+          src={tweets.user.profile_image_url}
+          style={{ height: 70, width: 70 }}
+        />
       </Card.Header>
       <Card.Body>
-        <Card.Title>@{tweet.user.screen_name}</Card.Title>
-        <Card.Text>{tweet.text}</Card.Text>
+        <Card.Title>@{tweets.user.screen_name}</Card.Title>
+        <Card.Text>{tweets.text}</Card.Text>
       </Card.Body>
       <Card.Footer>
-        <small className="icon">
-          <img src={twitterRetweet} style={{height: 20, width: 25}} ></img>
-            {tweet.retweet_count}
-        </small>
-        <small className="icon">
-          <img src={twitterHeart}  style={{height: 20, width: 25}} ></img>
-          {tweet.favorite_count}
-        </small>
+        {tweets.retweet_count}
+        <img src={twitterRetweet} style={{ height: 40, width: 45 }} />
+        {tweets.favorite_count}
+        <img src={twitterHeart} id="favorite-icon" style={{ height: 30, width: 35 }} />
       </Card.Footer>
     </Card>
-  )
-}
+	);
+};
 
 export default TwitterCard;
