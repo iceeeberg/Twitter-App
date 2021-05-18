@@ -31,6 +31,11 @@ app.get('/api/tweets/users', (req, res) => {
 });
 
 
+app.get("/*", (req, res) =>
+res.sendFile(path.join(__dirname, "client", "build", "index.html"))
+);
+
+
 app.listen(port, () => {
   console.log(`server is listening on ${port}!`);
 });
