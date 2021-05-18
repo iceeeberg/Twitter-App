@@ -1,4 +1,5 @@
-# Twitter Hunter, A Twitter API App
+# Twitter Hunter
+A Twitter API App
 
 A fullstack application utilizing data from the Twitter API. Created with React, Bootstrap, Node, and Express. 
 
