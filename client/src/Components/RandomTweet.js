@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TwitterCard from './twitterCard';
+import TwitterCard from './TwitterCard';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import billgatesImage from '../images/bill_gates.jpg';

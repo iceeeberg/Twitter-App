@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios';
-import TwitterCard from './twitterCard';
+import TwitterCard from './TwitterCard';
 
 const Search = () => {
   const [search, setSearch] = useState("");
