@@ -29,4 +29,4 @@ My first ever full stack website I have ever created. Although it was challengin
 
 ## Author 
 
-Dante Leeseberg - Full Stack Software Developer [LinkedIn](https://www.linkedin.com/in/dante-leeseberg-bba05883/) | Website is under construction. 
+Dante Leeseberg - Full Stack Software Developer [LinkedIn](https://www.linkedin.com/in/dante-leeseberg-bba05883/) | [Website](https://www.danteleeseberg.com/)
