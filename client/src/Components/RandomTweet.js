@@ -8,18 +8,65 @@ import lebronjamesImage from '../images/lebron_james.jpg';
 import nbaImage from '../images/nba.jpg';
 import nintendoImage from '../images/nintendo.png';
 
+const RANDOM_USERS = [
+  'Bill Gates', 
+  'Elon Musk', 
+  'Lebron James', 
+  'NBA', 
+  'Nintendo of America'];
+
+const RANDOM_IMAGES = [
+  billgatesImage, 
+  elonmuskImage, 
+  lebronjamesImage, 
+  nbaImage, 
+  nintendoImage];
+
 const RandomTweet = () => {
   const [tweets, setTweets] = useState(null);
 
   const handleClick = (screen_name) => {
     getRandomTweets(`/api/tweets/users?screen_name=${screen_name}`)
-  }
+  };
 
   const getRandomTweets = async (tweets) => {
     const tweetData = await axios.get(tweets);
     const response = tweetData.data
     const random = response[Math.floor(Math.random() * response.length)]
-    setTweets(random)
+    setTweets(random);
+  };
+
+  const createRandomButton = () => {
+     return RANDOM_USERS.map(userName =>{
+      let id = userName.split(' ').join('').toLocaleLowerCase();
+      if (userName === 'Lebron James'){
+        id = 'kingjames'
+      }
+      if (userName === 'Nintendo of America'){
+        id = 'nintendoamerica'
+      }
+
+      return (
+        <button
+        className="btn btn-dark mb-2" 
+        key={userName}
+        onClick={() => handleClick(id)}>{userName}
+        </button>
+      );
+    });
+  }
+
+  const createRandomImages = () => {
+    return RANDOM_IMAGES.map((img, idx) => {
+      return (
+        <img 
+        key={idx}
+        className="img-thumbnail" 
+        style={{ height: 200, width: 200 }} 
+        src={img}>
+        </img>
+      );
+    });
   }
 
   return (
@@ -35,36 +82,15 @@ const RandomTweet = () => {
       <div className="row">
         <div className="col text-center">
           <figure>
-            <img className="img-thumbnail" style={{ height: 200, width: 200 }} src={billgatesImage}></img>
-            <img className="img-thumbnail" style={{ height: 200, width: 200 }} src={elonmuskImage}></img>
-            <img className="img-thumbnail" style={{ height: 200, width: 200 }} src={lebronjamesImage}></img>
-            <img className="img-thumbnail" style={{ height: 200, width: 200 }} src={nbaImage}></img>
-            <img className="img-thumbnail" style={{ height: 200, width: 200 }} src={nintendoImage}></img>
+            {createRandomImages()}
           </figure>
         </div>
       </div>
       <div className="vol-ctr">
-        <button
-          className="btn btn-dark mb-2" id='billgates' onClick={() => handleClick(`billgates`)}>Bill Gates
-        </button>
-        <button
-          className="btn btn-dark mb-2" id='elonmusk' onClick={() => handleClick(`elonmusk`)}>Elon Musk
-        </button>
-        <button
-          className="btn btn-dark mb-2" id='kingjames' onClick={() => handleClick(`kingjames`)}>Lebron James
-        </button>
-        <button
-          className="btn btn-dark mb-2" id='NBA' onClick={() => handleClick(`NBA`)}>NBA
-        </button>
-        <button
-          className="btn btn-dark mb-2" id='Nintendo' onClick={() => handleClick(`nintendoamerica`)}>
-          Nintendo of America
-        </button>
+        {createRandomButton()}
       </div>
       <div>
-        {tweets !== null ?
-          <TwitterCard tweets={tweets} /> :
-          null}
+        {tweets && <TwitterCard tweets={tweets} />}
       </div>
     </div>
   )

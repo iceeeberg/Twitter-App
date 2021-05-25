@@ -7,16 +7,22 @@ const Search = () => {
   const [search, setSearch] = useState("");
   const [tweets, setTweets] = useState([]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     if (search === "") {
       alert("You must enter a Twitter user!")
-    } else {
+      return;
+    }
+
       axios
         .get(`/api/tweets/users?screen_name=${search}`)
-        .then((res) => setTweets(res.data))
-    }
+        .then((res) => setTweets(res.data));
   };
+
+  function handleSearchChange(e) {
+    const searchTerm = e.target.value
+    setSearch(searchTerm)
+  }
 
   return (
     <div>
@@ -36,7 +42,7 @@ const Search = () => {
             placeholder="Search Username..."
             type="text"
             name="user"
-            onChange={(e) => setSearch(e.target.value)}>
+            onChange={handleSearchChange}>
           </input>
           <div className="input-group-append">
             <button className="btn btn-dark mb-2" id="search">Search User</button>
@@ -44,8 +50,10 @@ const Search = () => {
         </div>
       </form>
       <div>
-        {tweets.map((tweets) =>
-          <TwitterCard tweets={tweets} />
+        {tweets.map((tweets, idx) =>
+          <TwitterCard 
+          tweets={tweets}
+          key={idx} />
         )}
       </div>
     </div>
